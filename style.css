@@ -15,6 +15,7 @@ button{
   margin:15px;
   font-family: 'Noto Sans Mono', monospace;
 }
+
 button:hover{
   background-color:#8f86eb;
   color:#b3adee;
