@@ -1,64 +1,58 @@
-window.onload =
-  function(){
-  //---vars to access html elements ---//
-  let seconds = 00;
-  let tens = 00;
-   
+window.onload = function () {
+  // Variables to access HTML elements
+  let minutes = 0;
+  let seconds = 0;
+  let tens = 0;
+
+  let appendMinutes = document.getElementById("minutes");
+  let appendSeconds = document.getElementById("seconds");
   let appendTens = document.getElementById("tens");
-  let appendSeconds = 
-      document.getElementById("seconds");
-  
+
   let buttonStart = document.getElementById("button-start");
   let buttonStop = document.getElementById("button-stop");
   let buttonReset = document.getElementById("button-reset");
 
   let Interval;
-  
-  //---functions to start, stop, reset ---//
-  buttonStart.onclick = function(){
-    clearInterval(Interval);
-    Interval = setInterval(startTimer,10);
-  }
 
-  buttonStop.onclick = function(){
+  // Start the stopwatch
+  buttonStart.onclick = function () {
     clearInterval(Interval);
-  }
+    Interval = setInterval(startTimer, 10);
+  };
 
-  buttonReset.onclick = function(){
+  // Stop the stopwatch
+  buttonStop.onclick = function () {
     clearInterval(Interval);
-    tens="00";
-    seconds = "00";
-      appendTens.innerHTML = tens;
-    appendSeconds.innerHTML = seconds;
-  }
-  
-  function startTimer(){
+  };
+
+  // Reset the stopwatch
+  buttonReset.onclick = function () {
+    clearInterval(Interval);
+    minutes = 0;
+    seconds = 0;
+    tens = 0;
+    updateDisplay();
+  };
+
+  function startTimer() {
     tens++;
-    
-    if(tens <= 9){
-      appendTens.innerHTML = "0" + tens;
-    }
-    
-    if(tens > 9){
-      appendTens.innerHTML = tens;
-    }
-    
-    if(tens> 99){
-      console.log("seconds");
-      seconds++;
-      appendSeconds.innerHTML = "0" + seconds;
+
+    if (tens > 99) {
       tens = 0;
-      appendTens.innerHTML = "0" + 0;
+      seconds++;
     }
-    
-    if(seconds > 9){
-      appendSeconds.innerHTML = seconds;
-    }
+
     if (seconds > 59) {
-         seconds = 0; 
-        appendSeconds.innerHTML = "0" + 0;
-  
+      seconds = 0;
+      minutes++;
     }
+
+    updateDisplay();
   }
-  
+
+  function updateDisplay() {
+    appendTens.innerHTML = tens.toString().padStart(2, "0");
+    appendSeconds.innerHTML = seconds.toString().padStart(2, "0");
+    appendMinutes.innerHTML = minutes.toString().padStart(2, "0");
+  }
 };

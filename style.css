@@ -1,45 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Lexend+Deca&family=Noto+Sans+Mono:wght@300&display=swap');
 
-body{
+body {
   font-family: 'Noto Sans Mono', monospace;
   background-color: #292642;
   color: #ddd9fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-button{
-  background-color:#bcb5ff;
-  border:none;
-  border-radius:8px;
-  text-decoration: none;
+button {
+  background-color: #bcb5ff;
+  border: none;
+  border-radius: 8px;
   padding: 10px 30px;
-  margin:15px;
+  margin: 10px;
+  font-size: 16px;
   font-family: 'Noto Sans Mono', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-button:hover{
-  background-color:#8f86eb;
-  color:#b3adee;
-  box-shadow: 2px 4px;
+button:hover {
+  background-color: #8f86eb;
+  color: #292642;
+  box-shadow: 2px 4px 10px rgba(188, 181, 255, 0.5);
 }
 
-.wrapper{ 
- position: fixed;
- top: 25%; 
- left: 35%; 
-  margin: auto; 
-  display: flex; 
-  flex-direction:column;
-
-  justify-content:space-between;
-  align-items:center;
-  
-  border: 3px ridge #bcb5ff; 
-  border-radius:1rem; 
-  width: 30%;
-
-  
+.wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border: 3px ridge #bcb5ff;
+  border-radius: 1rem;
+  text-align: center;
+  width: 320px;
 }
 
-.displayTime{
-  margin: 15px;
+#displayTime {
+  font-size: 2rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  margin: 0 0 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
